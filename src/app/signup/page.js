@@ -1,6 +1,6 @@
 // pages/auth.js
 
-import Signup from "../components/signup";
+import Signup from "../components/Signup";
 const Auth = () => {
   return (
     <div>
