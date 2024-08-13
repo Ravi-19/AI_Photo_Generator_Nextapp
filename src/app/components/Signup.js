@@ -20,8 +20,8 @@ const SignUp = () => {
     e.preventDefault();
     try {
       //   console.log("Input Username:", username);
-      console.log("Input Email:", email);
-      console.log("Input Password:", password);
+      // console.log("Input Email:", email);
+      // console.log("Input Password:", password);
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -37,7 +37,7 @@ const SignUp = () => {
         router.push("/signup");
       }
     } catch (error) {
-      console.error("Error signing up:", error.message);
+      // console.error("Error signing up:", error.message);
     }
   };
 

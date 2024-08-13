@@ -24,8 +24,8 @@ const SignUp = () => {
   const handleSignInEmail = async (e) => {
     e.preventDefault();
     try {
-      console.log("inpput email :", email);
-      console.log("inpput passwaord :", password);
+      // console.log("inpput email :", email);
+      // console.log("inpput passwaord :", password);
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -38,13 +38,13 @@ const SignUp = () => {
         router.push("/signup");
       }
     } catch (error) {
-      if (error.code === "auth/invalid-credential") {
-        console.error(
-          "Invalid Google credential. Please try signing in again."
-        );
-      } else {
-        console.error("Error signing in:", error.message);
-      }
+      // if (error.code === "auth/invalid-credential") {
+      //   console.error(
+      //     "Invalid Google credential. Please try signing in again."
+      //   );
+      // } else {
+      //   console.error("Error signing in:", error.message);
+      // }
     }
   };
 
@@ -52,14 +52,14 @@ const SignUp = () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log("User signed in with Google:", result.user);
+      // console.log("User signed in with Google:", result.user);
       if (result) {
         router.push("/");
       } else {
         router.push("/signup");
       }
     } catch (error) {
-      console.error("Google sign-in error:", error.message);
+      // console.error("Google sign-in error:", error.message);
     }
   };
 
