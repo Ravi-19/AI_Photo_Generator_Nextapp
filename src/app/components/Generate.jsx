@@ -51,9 +51,9 @@ function Generate() {
       <div className="bg-white  flex px-1 py-1 rounded-full border border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
         <input
           onChange={(e) => setPrompt(e.target.value)}
-          type="email"
+          type="text"
           placeholder="Search Something..."
-          class="w-full outline-none bg-white pl-4 text-sm"
+          className="w-full outline-none bg-white pl-4 text-sm"
         />
         <button
           type="button"
