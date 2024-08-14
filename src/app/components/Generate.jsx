@@ -3,6 +3,17 @@
 import React from "react";
 import { useState } from "react";
 function Generate() {
+  const images = ['https://i.ibb.co/8Xs75xY/photo-1723130031846-79fd300e72d9.jpg' ,
+    'https://i.ibb.co/r35fS8y/photo-1723279230514-c2d1401f794d.jpg' , 
+    "https://i.ibb.co/LgSPD86/photo-1723130028854-1b97ca970bf6.jpg",
+    "https://i.ibb.co/NL0vTHM/photo-1719937206589-d13b6b008196.jpg",
+    "https://i.ibb.co/s20315X/photo-1723375386110-729a0612ab99.jpg",
+    "https://i.ibb.co/fMNGTSN/photo-1723233428893-3c76be12e62c.jpg",
+    "https://i.ibb.co/DW8xzFf/photo-1723477450561-791fd67efa56.jpg",
+    "https://i.ibb.co/c2kmXj2/photo-1723484922189-cea7f9e0fa9a.jpg",
+    "https://i.ibb.co/X3zBZPk/photo-1723444585217-56393cc4946a.jpg",
+    "https://i.ibb.co/wBLsKvj/photo-1723242015936-ab12ca2626b3.jpg" 
+   ] ; 
   const [prompt, setPrompt] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -10,8 +21,9 @@ function Generate() {
   const generateImage = async () => {
     setLoading(true);
     try {
+      const randomNumber = Math.floor(Math.random() * 10);
       setImageUrl(
-        "https://images.pexels.com/photos/18884485/pexels-photo-18884485/free-photo-of-a-couple-standing-in-the-sea-and-hugging.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        images[randomNumber]
       );
     } catch (error) {
       console.error("Error generating image:", error);
