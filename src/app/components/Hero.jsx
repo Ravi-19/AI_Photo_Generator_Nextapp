@@ -9,7 +9,7 @@ const router = useRouter();
 
 function handleCreateBtn() {
 
-    router.push('/generate')
+    router.push('/Generate')
 
 }
 
