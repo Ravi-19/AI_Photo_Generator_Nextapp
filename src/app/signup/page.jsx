@@ -1,4 +1,4 @@
-pages/auth.js
+"use client"
 
 import Signup from "@/app/components/Signup";
 const Auth = () => {
