@@ -1,16 +1,13 @@
 "use client"
 import React from 'react'
 
-function Signup() {
+function SignupCom() {
   return (
     <div>Signup</div>
   )
 }
 
-export default Signup
-
-
-
+export default SignupCom
 // "use client";
 // import { useRouter } from 'next/navigation';
 // import { useState } from "react";

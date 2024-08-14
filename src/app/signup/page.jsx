@@ -1,11 +1,11 @@
 "use client"
 
-import Signup from "@/app/components/Signup";
+import SignupCom from "@/app/components/SignupCom";
 const Auth = () => {
   return (
     <div>
       <h1>Authentication</h1>
-      <Signup/>
+      <SignupCom/>
       
     </div>
   );
