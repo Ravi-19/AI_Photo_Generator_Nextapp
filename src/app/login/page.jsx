@@ -1,14 +1,13 @@
 // pages/auth.js
 
-import Signup from "../components/Signup";
+import Login from "@/app/components/Login"
 const Auth = () => {
   return (
     <div>
       <h1>Authentication</h1>
-      <Signup/>
       
+      <Login/>
     </div>
   );
 };
-
 export default Auth;
