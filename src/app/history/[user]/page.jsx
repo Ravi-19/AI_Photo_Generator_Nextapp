@@ -8,9 +8,13 @@ import Link from 'next/link';
 
 function History() {
     const [history , setHistory] = useState('') ; 
+    let email = ""
+    if (typeof window !== 'undefined') {
+     email =   localStorage?.getItem('email') ;
+  }
     async function gettingHistory() {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage?.getItem('email')}`) ; 
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${email}`) ; 
           setHistory(response.data.history) ; 
           
         } catch (error) {
