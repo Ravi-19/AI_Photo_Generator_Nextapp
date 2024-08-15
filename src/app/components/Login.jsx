@@ -14,9 +14,9 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       console.log("User signed in with Google:", result.user.auth);
       console.log("User signed in with Google:", result.user.displayName);
-      localStorage.setItem('name',result.user.displayName);
-      localStorage.setItem('email',result.user.email);
-      localStorage.setItem('image',result.user.photoURL);
+      localStorage?.setItem('name',result.user.displayName);
+      localStorage?.setItem('email',result.user.email);
+      localStorage?.setItem('image',result.user.photoURL);
       if (result) {
         router.push("/");
       } else {

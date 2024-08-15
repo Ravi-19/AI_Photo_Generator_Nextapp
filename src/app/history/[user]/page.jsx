@@ -10,7 +10,7 @@ function History() {
     const [history , setHistory] = useState('') ; 
     async function gettingHistory() {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage.getItem('email')}`) ; 
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage?.getItem('email')}`) ; 
           setHistory(response.data.history) ; 
           
         } catch (error) {

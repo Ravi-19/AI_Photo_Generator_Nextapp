@@ -24,7 +24,7 @@ import Link from "next/link";
 
   async function sendingHisotry() {
     try {
-      const response =await axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage.getItem('email')}` , {
+      const response =await axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage?.getItem('email')}` , {
         prompt:prompt
       })
       setHistory(response.data.history) ;
@@ -38,7 +38,7 @@ import Link from "next/link";
   }
   async function gettingHistory() {
     try {
-      const response =await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage.getItem('email')}`) ; 
+      const response =await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage?.getItem('email')}`) ; 
       setHistory(response.data.history) ; 
       
     } catch (error) {
@@ -107,7 +107,7 @@ import Link from "next/link";
       </div>
       <div className="mt-6">
       <Link className="bg-blue-600 hover:bg-blue-700 transition-all text-white  rounded-full  px-5 py-2.5"
-       href={`/history/${localStorage.getItem('email')}`}>history</Link>
+       href={`/history/${localStorage?.getItem('email')}`}>history</Link>
 
       </div>
       
