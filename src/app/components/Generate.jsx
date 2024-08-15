@@ -2,7 +2,9 @@
 
 import React from "react";
 import { useState } from "react";
-function Generate() {
+import axios from "axios";
+
+ function  Generate() {
   const images = ['https://i.ibb.co/8Xs75xY/photo-1723130031846-79fd300e72d9.jpg' ,
     'https://i.ibb.co/r35fS8y/photo-1723279230514-c2d1401f794d.jpg' , 
     "https://i.ibb.co/LgSPD86/photo-1723130028854-1b97ca970bf6.jpg",
@@ -18,6 +20,13 @@ function Generate() {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // async function sendingHisotry() {
+  //   const response = axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/12` , {
+  //     data: {
+
+  //     }
+  //   })
+  // }
   const generateImage = async () => {
     setLoading(true);
     try {
