@@ -16,7 +16,7 @@ function History() {
         try {
             const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${email}`) ; 
           setHistory(response.data.history) ; 
-          
+          console.log(response.data.history) 
         } catch (error) {
           console.log("error occured while getting history" , error); 
         }
