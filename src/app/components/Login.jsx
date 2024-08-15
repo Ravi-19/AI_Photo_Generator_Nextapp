@@ -8,12 +8,15 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
   const router = useRouter();
-
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      // console.log("User signed in with Google:", result.user);
+      console.log("User signed in with Google:", result.user.auth);
+      console.log("User signed in with Google:", result.user.displayName);
+      localStorage.setItem('name',result.user.displayName);
+      localStorage.setItem('email',result.user.email);
+      localStorage.setItem('image',result.user.photoURL);
       if (result) {
         router.push("/");
       } else {

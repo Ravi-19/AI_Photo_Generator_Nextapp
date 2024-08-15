@@ -3,6 +3,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
  function  Generate() {
   const images = ['https://i.ibb.co/8Xs75xY/photo-1723130031846-79fd300e72d9.jpg' ,
@@ -17,23 +18,43 @@ import axios from "axios";
     "https://i.ibb.co/wBLsKvj/photo-1723242015936-ab12ca2626b3.jpg" 
    ] ; 
   const [prompt, setPrompt] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [history , setHistory] = useState([]) ; 
+  const [imageUrl , setImageUrl] = useState('') ; 
 
-  // async function sendingHisotry() {
-  //   const response = axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/12` , {
-  //     data: {
+  async function sendingHisotry() {
+    try {
+      const response =await axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage.getItem('email')}` , {
+        prompt:prompt
+      })
+      setHistory(response.data.history) ;
+      console.log(response) ; 
+      //console.log("history is "  , history) ; 
+      
+    } catch (error) {
+      console.log("error occured while saving history" , error); 
+    }
 
-  //     }
-  //   })
-  // }
+  }
+  async function gettingHistory() {
+    try {
+      const response =await axios.get(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/history/${ localStorage.getItem('email')}`) ; 
+      setHistory(response.data.history) ; 
+      
+    } catch (error) {
+      console.log("error occured while getting history" , error); 
+    }
+
+  }
   const generateImage = async () => {
+    
     setLoading(true);
     try {
       const randomNumber = Math.floor(Math.random() * 10);
       setImageUrl(
         images[randomNumber]
       );
+      await sendingHisotry(); 
     } catch (error) {
       console.error("Error generating image:", error);
     } finally {
@@ -84,6 +105,12 @@ import axios from "axios";
           Generate
         </button>
       </div>
+      <div className="mt-6">
+      <Link className="bg-blue-600 hover:bg-blue-700 transition-all text-white  rounded-full  px-5 py-2.5"
+       href={`/history/${localStorage.getItem('email')}`}>history</Link>
+
+      </div>
+      
     </div>
   );
 }
