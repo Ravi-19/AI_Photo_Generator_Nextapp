@@ -38,8 +38,6 @@ function History() {
          history ? history?.map((item , index) => {
                 return (<div className='flex gap-2 flex-col mt-4  ' key={index}>
                        <SingleHistory data = {item}/>
-                       <SingleHistory data = {item}/>
-                       <SingleHistory data = {item}/>
                      </div>)
             })
         : <p >please show your skills to Generate images and search something</p> }
