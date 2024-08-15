@@ -1,12 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
+  const[name , setName] = useState('') ; 
+  const[email , setEmail] = useState('') ; 
+  const[image , setImage] = useState('') ; 
   const router = useRouter();
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
@@ -14,12 +17,9 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
       console.log("User signed in with Google:", result.user.auth);
       console.log("User signed in with Google:", result.user.displayName);
-      if (typeof window !== 'undefined') {
-        localStorage?.setItem('name',result.user.displayName);
-        localStorage?.setItem('email',result.user.email);
-        localStorage?.setItem('image',result.user.photoURL);
-     }
-      
+      setName(result.user.displayName) ; 
+      setEmail(result.user.email) ; 
+      setImage(result.user.photoURL) ; 
       if (result) {
         router.push("/");
       } else {
@@ -30,6 +30,16 @@ const Login = () => {
     }
   };
 
+  useEffect(()=> {
+    if (typeof window !== 'undefined') {
+      // localStorage?.setItem('name',result.user.displayName);
+      // localStorage?.setItem('email',result.user.email);
+      // localStorage?.setItem('image',result.user.photoURL);
+       localStorage?.setItem('name',name);
+       localStorage?.setItem('email',email);
+       localStorage?.setItem('image',image);
+   }
+  } , [name , email , image]); 
   return (
     <div class="min-h-screen  bg-indigo-100  text-gray-900 flex justify-center">
       <div class="max-w-screen-xl m-0 sm:m-10 bg-indigo-200 shadow sm:rounded-lg flex justify-center flex-1">
